@@ -5,44 +5,49 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Entity
-@Table(name="pending_returns")
+@Table(name="pending_returns", uniqueConstraints = { @UniqueConstraint(columnNames = { "orderId", "sku" }) })
 public class PendingReturn extends BaseEntity  implements Serializable {
 
     @Column
     @Setter @Getter
-    private String filename;
-
+    private String orderId;
+    
     @Column
     @Setter @Getter
-    private String uuid;
-
-    @Column(name="md5_hash")
-    @Setter @Getter
-    private String md5hash;
-
+    private String emailAddress;
+    
     @Column
     @Setter @Getter
-    private BigDecimal size;
-
-    @Column(name="total_rows")
+    private String sku;
+    
+    @Column
     @Setter @Getter
-    private BigDecimal totalrows;
+    private Long quantity;
+    
+    @Column
+    @Setter @Getter
+    private BigDecimal price;
+    
+    @Column
+    @Setter @Getter
+    private String itemName;
 
-    @Column(name="token")
+    @Column
     @Setter @Getter
     private String token;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @Column
     @Setter @Getter
-    private StringMap status;
+    private String status;
 
 }
 
