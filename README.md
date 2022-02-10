@@ -29,6 +29,10 @@ In this repository also included maven wrapper for compile and build purpose.
 - run following command to build program as a jar package.
   
     `./mvnw clean package`
+    
+- then following command used run from a jar package.
+  
+    `java -jar target/return-management-0.0.1-SNAPSHOT.jar`
 
 <br>
 <br>
