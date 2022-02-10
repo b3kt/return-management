@@ -5,7 +5,6 @@ this is sample program for simulate return management
 <br>
 
 ## Requirements
----
 This program requires *Java JDK 8+* to build and running. at this case i use *GraalVM CE 21.3.0*
 
 <br>
@@ -13,7 +12,6 @@ This program requires *Java JDK 8+* to build and running. at this case i use *Gr
 
 
 ## Build and Running
----
 In this repository also included maven wrapper for compile and build purpose.
 
 - run following command at first time build to fetch all required libary
@@ -36,7 +34,6 @@ In this repository also included maven wrapper for compile and build purpose.
 <br>
 
 ## Endpoint test
----
 for endpoint test, please find file *ReturnKey.postman_collection.json* for Postman Collection.
 
 *note*: this postman collection exported using version 2.1
