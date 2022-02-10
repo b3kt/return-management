@@ -30,7 +30,7 @@ In this repository also included maven wrapper for compile and build purpose.
   
     `./mvnw clean package`
     
-- then following command used run from a jar package.
+- then run the jar package.
   
     `java -jar target/return-management-0.0.1-SNAPSHOT.jar`
 
