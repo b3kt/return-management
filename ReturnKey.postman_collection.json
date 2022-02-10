@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "ad141074-3ece-4953-9653-91c756e5e9a8",
+		"name": "ReturnKey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/user/Project/ReturnKey/orders.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inquiry Pending Return",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "orderId",
+							"value": "RK-238",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "carly@example.com",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "john@example.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "orderId",
+							"value": "RK-478",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/pending/returns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pending",
+						"returns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating Return",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "d521ae99bfa4c7004e139f9bf1a31760df1822b944bb0499954476bb5ec633eb",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/returns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"returns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Returns",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/returns/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"returns",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Quality Control",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "status",
+							"value": "ACCEPTED",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "REJECTED",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "WAITING_APPROVAL",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/returns/1/items/3/qc/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"returns",
+						"1",
+						"items",
+						"3",
+						"qc",
+						"status"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "ACCEPTED",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "REJECTED",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

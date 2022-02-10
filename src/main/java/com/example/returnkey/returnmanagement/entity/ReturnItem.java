@@ -2,12 +2,12 @@ package com.example.returnkey.returnmanagement.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.google.gson.annotations.Expose;
@@ -16,28 +16,33 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name= "returns")
-public class Return extends BaseEntity implements Serializable {
+@Table(name="return_items")
+public class ReturnItem extends BaseEntity  implements Serializable {
 
     @Expose
     @Column
     @Setter @Getter
-    private String orderId;
-    
-    @Expose
-    @Column
-    @Setter @Getter
-    private String emailAddress;
-    
-    @Expose
-    @Column
-    @Setter @Getter
-    private BigDecimal refundAmount;
+    private String itemName;
 
     @Expose
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "returns")
+    @Column
     @Setter @Getter
-    private List<ReturnItem> returnItemList;
+    private String sku;
+
+    @Expose
+    @Column
+    @Setter @Getter
+    private BigDecimal price;
+
+    @Expose
+    @Column
+    @Setter @Getter
+    private Long quantity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "return_id")
+    @Setter @Getter
+    private Return returns;   
 
     @Expose
     @Column
